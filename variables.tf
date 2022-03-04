@@ -1,15 +1,19 @@
-variable "node_location" {
+variable "deploy_location" {
     type = string
+    default = "Korea Central"
+    description = "location"
 }
 variable "resource_prefix"{
     type = string
+    default = "gac-krc"
+    description = "prefix"
 }
-variable "node_address_space" {
-    default = ["10.0.0.0/8"]
+variable "resource_group_name" {
+    type = string
+    default = "gac-krc-avd-rg"
 }
-variable "node_address_prefix"{
-    default = "10.1.0.0/16"
-}
-variable "node_count" {
-    type = number
+variable "host_pool_name" {
+    type = string
+    default = "hostpool"
+    description = "hostpool"
 }

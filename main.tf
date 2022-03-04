@@ -1,11 +1,18 @@
-provider "azurerm" {
-  features {}
-}
+#AVD 구성요소
+#Resource Group
+#Workspace
+#Hostpool
+#Hostpool registration expiration date (create a time_rotating resource)
+#Application Group (our DAG)
+#Application Group association to workspace
+
+
 #Create Resource Group
-resource "azurerm_resource_group" "example" {
-  name     = "rg-example-virtualdesktop"
-  location = "West Europe"
+resource "azurerm_resource_group" "avd_rg" {
+  name     = var.resource_group_name
+  location = var.deploy_location
 }
+
 #Create AVD Host Pool - 풀링된 호스트 풀 유형
 resource "azurerm_virtual_desktop_host_pool" "pooledbreadthfirst" {
   name                = "pooledbreadthfirst"
@@ -54,12 +61,12 @@ resource "azurerm_virtual_desktop_application_group" "desktopapp" {
 }
 #Create Workspace 
 resource "azurerm_virtual_desktop_workspace" "workspace" {
-  name                = "workspace"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  name                = var.workspace
+  location            = var.deploy_location
+  resource_group_name = azurerm_resource_group.rg.name
 
-  friendly_name = "FriendlyName"
-  description   = "A description of my workspace"
+  friendly_name = "${var.resource_prefix}-Workspace"
+  description   = "${var.resource_prefix}-Workspace"
 }
 #Create AVD 앱 그룹 할당
 resource "azurerm_virtual_desktop_workspace_application_group_association" "workspaceremoteapp" {
