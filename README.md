@@ -6,7 +6,7 @@ AVD는 관리자가 확장 가능하고 유연한 가상 데스크톱 솔루션�
 
 AVD를 사용하면 관리자가 단일 호스트 풀에서 전체 가상 데스크톱 또는 원격 애플리케이션을 게시하거나 다양한 사용자 집합에 대한 개별 애플리케이션 그룹을 생성할 수 있다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/49076633-b64f-4227-967f-772e2feaf427/Untitled.png)
+
 
 # Azure AVD 구성 요소
 
