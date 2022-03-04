@@ -4,7 +4,7 @@ provider "azurerm" {
 }
 ##리소스 그룹 생성
 resource "azurerm_resource_group" "li_rg" {
-    name = "${var.resource_prefix}-RG"
+    name = "${var.resource_prefix}-web-rg"
     location = var.node_location
 }
 ## Vnet 생성
