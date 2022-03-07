@@ -9,7 +9,7 @@
 
 #Create Resource Group
 resource "azurerm_resource_group" "avd_rg" {
-  name     = var.resource_group_name
+  name     = var.rg_name
   location = var.deploy_location
 }
 
@@ -65,8 +65,8 @@ resource "azurerm_virtual_desktop_workspace" "workspace" {
   location            = var.deploy_location
   resource_group_name = azurerm_resource_group.rg.name
 
-  friendly_name = "${var.resource_prefix}-Workspace"
-  description   = "${var.resource_prefix}-Workspace"
+  friendly_name = "${var.prefix}-Workspace"
+  description   = "${var.prefix}-Workspace"
 }
 #Create AVD 앱 그룹 할당
 resource "azurerm_virtual_desktop_workspace_application_group_association" "workspaceremoteapp" {
